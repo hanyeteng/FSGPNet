@@ -2,8 +2,10 @@
 
 ### Frequency–Spatial Domain Jointly Guided Perceptual Network for Infrared Small Target Detection
 
+[![Project Page](https://img.shields.io/badge/Project-FSGPNet-4c8bf5?style=flat-square)](#fsgpnet)
 ![Task](https://img.shields.io/badge/Task-Infrared%20Small%20Target%20Detection-orange?style=flat-square)
 ![Framework](https://img.shields.io/badge/Framework-PyTorch-red?style=flat-square)
+[![DOI](https://zenodo.org/badge/DOI/10.3390/rs18071000.svg)](https://doi.org/10.3390/rs18071000)
 
 **Joint frequency and spatial perception for detecting dim infrared targets in cluttered scenes.**
 
