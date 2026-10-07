@@ -1,7 +1,5 @@
 # FSGPNet
 
-[简体中文说明](README.zh-CN.md) · [Release check](docs/RELEASE_CHECK.md)
-
 ### Frequency–Spatial Domain Jointly Guided Perceptual Network for Infrared Small Target Detection
 
 ![Task](https://img.shields.io/badge/Task-Infrared%20Small%20Target%20Detection-orange?style=flat-square)
@@ -44,7 +42,27 @@ The encoder uses base channel width 16 and four downsampling operations. FSEM st
 | GTAM | `ExpansionContrastModule` and `PhaseEnhancedGaborFilter` in `model/FSGPNet/CDCNs/Gradient_model.py` |
 | Output and loss | `net.py`, `loss.py` |
 
-**Parameter accounting:** the manuscript reports 4.75M parameters. The supplied implementation registers 7,246,406 parameters in total, including an unused `mtc` module (2,033,400) and `decoder5` (459,648). Excluding these two modules leaves 4,753,358 registered parameters. They are retained to preserve strict compatibility with the supplied checkpoints. A direct sum over all parameters therefore returns 7.25M. Profiling conventions and the remaining code/manuscript differences are described in [the release check](docs/RELEASE_CHECK.md).
+**Parameter accounting:** the manuscript reports 4.75M parameters. The supplied implementation registers 7,246,406 parameters in total, including an unused `mtc` module (2,033,400) and `decoder5` (459,648). Excluding these two modules leaves 4,753,358 registered parameters. They are retained to preserve strict compatibility with the supplied checkpoints. A direct sum over all parameters therefore returns 7.25M.
+
+The following module diagrams are taken from the supplied corrected manuscript.
+
+### FSEM: Frequency–Spatial Feature Enhancement Module
+
+FSEM combines pinwheel convolution, the spatial PMD branch, and DCT-based dynamic high-frequency perception to strengthen target details and suppress background interference.
+
+![FSEM structure: pinwheel convolution, PMD, and dynamic high-frequency perception](images/FSEM.png)
+
+### MSGP: Multi-Scale Global Perception Module
+
+MSGP combines non-local contextual attention with multi-scale dilated convolution, channel shuffle, and squeeze-and-excitation to refine the bottleneck representation.
+
+![MSGP structure: non-local attention and multi-scale dilated convolution](images/MSGP.png)
+
+### GTAM: Gabor Transformer Attention Module
+
+GTAM extracts Gabor responses at eight orientations and two kernel sizes (5×5 and 7×7), then uses attention and feature fusion to refine skip features for decoder reconstruction.
+
+![GTAM structure: multi-directional, multi-scale Gabor filtering and attention](images/GTAM.png)
 
 ## Quick Start
 
@@ -215,7 +233,7 @@ Measured on **8 October 2026**, using the supplied weights, the included 663/664
 | NUDT-SIRST | 95.96 | 95.95 | 97.94 | 99.26 | 1.4248 |
 | IRSTD-1K | 68.44 | 68.74 | 81.26 | 90.91 | 6.0921 |
 
-These are separate measurements. The supplied checkpoints/splits are **not confirmed to reproduce the manuscript tables exactly**. The released evaluator corrects per-image max normalization in F1 and equal-area component matching in Fa, and uses consistent binary ground truth for antialiased masks. The model predictions are unchanged; label binarization can affect all metrics on the affected IRSTD-1K samples. See [the full release check](docs/RELEASE_CHECK.md) for evidence and remaining publication tasks.
+These are separate measurements. The supplied checkpoints/splits are **not confirmed to reproduce the manuscript tables exactly**. The released evaluator corrects per-image max normalization in F1 and equal-area component matching in Fa, and uses consistent binary ground truth for antialiased masks. The model predictions are unchanged; label binarization can affect all metrics on the affected IRSTD-1K samples.
 
 ## Qualitative Results
 
