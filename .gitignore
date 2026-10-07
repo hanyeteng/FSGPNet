@@ -1,0 +1,45 @@
+# Python / editor caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.idea/
+.vscode/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Local data and experiment output
+log/
+logs/
+runs/
+results/
+outputs/
+tmp/
+*.pth
+*.pt
+*.ckpt
+*.pth.tar
+# Publish only the two supplied inference checkpoints.
+!checkpoints/NUDT-SIRST/FSGPNet.pth.tar
+!checkpoints/IRSTD-1K/FSGPNet.pth.tar
+checkpoints/test_*.txt
+# Keep dataset instructions and the exact experimental splits.
+datasets/*
+!datasets/README.md
+!datasets/NUDT-SIRST/
+!datasets/IRSTD-1K/
+datasets/NUDT-SIRST/*
+datasets/IRSTD-1K/*
+!datasets/NUDT-SIRST/img_idx/
+!datasets/IRSTD-1K/img_idx/
+datasets/*/img_idx/*
+!datasets/*/img_idx/train_*.txt
+!datasets/*/img_idx/test_*.txt
+
+# Local credentials and OS files
+.env
+.env.*
+*.pem
+*.key
+Thumbs.db
+.DS_Store
