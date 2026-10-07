@@ -71,13 +71,7 @@ FSGPNet/
 └── test_all.py
 ```
 
-The two supplied checkpoints are included in the release files. No external checkpoint-download URL has been supplied. Only these two curated weight files are allowed by `.gitignore`; new training outputs are excluded.
-
-Dataset images and masks are excluded from Git. The exact local experiment split lists are included. Each list contains one image identifier per line, **without `.png`**, and images and masks share the same identifier. Masks use 0 for background and 255 for targets. See [dataset instructions](datasets/README.md).
-
 ### 3. Training
-
-The default protocol uses Adam, learning rate 0.001, cosine annealing to 0.00001, batch size 8, 400 epochs, SoftIoU loss, and prediction threshold 0.5.
 
 ```bash
 # Train on NUDT-SIRST
@@ -140,7 +134,3 @@ Use the following provisional record when referring to the supplied manuscript. 
   publisher={MDPI}
 }
 ```
-
-## License
-
-A repository-wide license has not yet been specified. No MIT or other license is asserted here. Confirm the intended license and relevant third-party terms before publishing the repository as an openly licensed project.
