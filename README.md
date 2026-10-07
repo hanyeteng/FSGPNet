@@ -103,7 +103,7 @@ python test.py --dataset_names NUDT-SIRST --weight_path ./checkpoints/NUDT-SIRST
 python test.py --dataset_names IRSTD-1K --weight_path ./checkpoints/IRSTD-1K/FSGPNet.pth.tar
 ```
 
-### 5. Quantitative Results
+## Quantitative Results
 
 Measured on **8 October 2026**, using the supplied weights, the included 663/664 and 800/201 splits, PyTorch 2.0.1 / CUDA 11.7, an RTX 3090, FP32 inference, batch size 1, and threshold 0.5:
 
