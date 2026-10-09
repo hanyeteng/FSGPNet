@@ -136,3 +136,7 @@ Use the following provisional record when referring to the supplied manuscript. 
   publisher={MDPI}
 }
 ```
+
+## License
+
+This project is released under the [MIT License](LICENSE).
