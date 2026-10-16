@@ -8,7 +8,7 @@ os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 
 
 class Net(nn.Module):
-    def __init__(self, model_name, mode='test'):
+    def __init__(self, model_name, mode='test', , patch_size=None):
         super(Net, self).__init__()
 
         self.model_name = model_name
